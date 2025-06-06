@@ -1,0 +1,1092 @@
++ export VLLM_ATTENTION_BACKEND=FLASH_ATTN
++ VLLM_ATTENTION_BACKEND=FLASH_ATTN
++ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
++ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
++ MODEL_ROOT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1
++ OUTPUT_ROOT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs
++ GPU_NUM=8
++ TP=1
++ TEMP=0.6
++ TOP_P=0.95
++ MAX_LEN=32768
++ for MODEL_NAME in DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ MODEL_PATH=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k
++ OUTPUT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k
++ DATA_TYPE=aime
++ N=16
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k
++ echo 'Datasets: '
+Datasets: 
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/aime/aime_n_16_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=16 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.95 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+2025-03-22 19:09:43,607	INFO worker.py:1841 -- Started a local Ray instance.
+[36m(pid=144132)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=144132)[0m No module named 'vllm._version'
+[36m(pid=144132)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=144484)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=144484)[0m No module named 'vllm._version'
+[36m(pid=144484)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=144485)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=144485)[0m No module named 'vllm._version'
+[36m(pid=144485)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(ActorRolloutRefWorker pid=144132)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(pid=144490)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:[32m [repeated 5x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=144490)[0m No module named 'vllm._version'[32m [repeated 5x across cluster][0m
+[36m(pid=144490)[0m   from vllm.version import __version__ as VLLM_VERSION[32m [repeated 5x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(ActorRolloutRefWorker pid=144132)[0m   warnings.warn(
+[36m(ActorRolloutRefWorker pid=144490)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+Token indices sequence length is longer than the specified maximum sequence length for this model (19283 > 16384). Running this sequence through the model will result in indexing errors
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 16,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/aime/aime_n_16_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.95,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+[36m(ActorRolloutRefWorker pid=144132)[0m Model config after override: Qwen2Config {
+[36m(ActorRolloutRefWorker pid=144132)[0m   "_name_or_path": "/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k",
+[36m(ActorRolloutRefWorker pid=144132)[0m   "architectures": [
+[36m(ActorRolloutRefWorker pid=144132)[0m     "Qwen2ForCausalLM"
+[36m(ActorRolloutRefWorker pid=144132)[0m   ],
+[36m(ActorRolloutRefWorker pid=144132)[0m   "attention_dropout": 0.0,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "bos_token_id": 151646,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "eos_token_id": 151643,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "hidden_act": "silu",
+[36m(ActorRolloutRefWorker pid=144132)[0m   "hidden_size": 1536,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "initializer_range": 0.02,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "intermediate_size": 8960,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "max_position_embeddings": 131072,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "max_window_layers": 21,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "model_type": "qwen2",
+[36m(ActorRolloutRefWorker pid=144132)[0m   "num_attention_heads": 12,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "num_hidden_layers": 28,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "num_key_value_heads": 2,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "pad_token_id": 151643,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "rms_norm_eps": 1e-06,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "rope_scaling": null,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "rope_theta": 10000,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "sliding_window": null,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "tie_word_embeddings": false,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "torch_dtype": "bfloat16",
+[36m(ActorRolloutRefWorker pid=144132)[0m   "transformers_version": "4.45.2",
+[36m(ActorRolloutRefWorker pid=144132)[0m   "use_cache": false,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "use_mrope": false,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "use_sliding_window": false,
+[36m(ActorRolloutRefWorker pid=144132)[0m   "vocab_size": 151936
+[36m(ActorRolloutRefWorker pid=144132)[0m }
+[36m(ActorRolloutRefWorker pid=144132)[0m 
+[36m(ActorRolloutRefWorker pid=144132)[0m NCCL version 2.20.5+cuda12.4
+[36m(ActorRolloutRefWorker pid=144132)[0m Qwen2ForCausalLM contains 1.78B parameters
+[36m(ActorRolloutRefWorker pid=144132)[0m wrap_policy: functools.partial(<function transformer_auto_wrap_policy at 0x1472232fbec0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})
+[36m(ActorRolloutRefWorker pid=144132)[0m Before building vllm rollout, memory allocated (GB): 0.43093395233154297, memory reserved (GB): 3.32421875
+[36m(ActorRolloutRefWorker pid=144490)[0m wrap_policy: functools.partial(<function transformer_auto_wrap_policy at 0x14691a1bfec0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:10:49 config.py:1005] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[36m(ActorRolloutRefWorker pid=144132)[0m WARNING 03-22 19:10:49 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(ActorRolloutRefWorker pid=144132)[0m local rank 0
+[36m(ActorRolloutRefWorker pid=144484)[0m NCCL version 2.20.5+cuda12.4
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:10:49 config.py:1005] Chunked prefill is enabled with max_num_batched_tokens=8192.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m WARNING 03-22 19:10:49 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m before init cache memory allocated: 4.063946752GB, reserved: 4.217372672GB
+[36m(ActorRolloutRefWorker pid=144132)[0m after init cache memory allocated: 78.579951616GB, reserved: 78.733377536GB
+[36m(ActorRolloutRefWorker pid=144490)[0m local rank 0[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 32768, 'detokenize': False, 'temperature': 0.6, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(ActorRolloutRefWorker pid=144490)[0m NCCL version 2.20.5+cuda12.4[32m [repeated 6x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m After building vllm rollout, memory allocated (GB): 69.86855983734131, memory reserved (GB): 73.326171875
+[36m(ActorRolloutRefWorker pid=144132)[0m After building sharding manager, memory allocated (GB): 69.86855983734131, memory reserved (GB): 73.326171875
+len(dataset): 30
+wg.worker_names: ['GXGuajActorRolloutRefWorker_0:0', 'GXGuajActorRolloutRefWorker_0:1', 'GXGuajActorRolloutRefWorker_0:2', 'GXGuajActorRolloutRefWorker_0:3', 'GXGuajActorRolloutRefWorker_0:4', 'GXGuajActorRolloutRefWorker_0:5', 'GXGuajActorRolloutRefWorker_0:6', 'GXGuajActorRolloutRefWorker_0:7']
+[1/1] Start to process.
+repeated_chat_lst0
+[[{'content': 'Every morning Aya goes for a $9$-kilometer-long walk and stops '
+              'at a coffee shop afterwards. When she walks at a constant speed '
+              'of $s$ kilometers per hour, the walk takes her 4 hours, '
+              'including $t$ minutes spent in the coffee shop. When she walks '
+              '$s+2$ kilometers per hour, the walk takes her 2 hours and 24 '
+              'minutes, including $t$ minutes spent in the coffee shop. '
+              'Suppose Aya walks at $s+\\frac{1}{2}$ kilometers per hour. Find '
+              'the number of minutes the walk takes her, including the $t$ '
+              "minutes spent in the coffee shop. Let's think step by step and "
+              'output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'Every morning Aya goes for a $9$-kilometer-long walk and stops '
+              'at a coffee shop afterwards. When she walks at a constant speed '
+              'of $s$ kilometers per hour, the walk takes her 4 hours, '
+              'including $t$ minutes spent in the coffee shop. When she walks '
+              '$s+2$ kilometers per hour, the walk takes her 2 hours and 24 '
+              'minutes, including $t$ minutes spent in the coffee shop. '
+              'Suppose Aya walks at $s+\\frac{1}{2}$ kilometers per hour. Find '
+              'the number of minutes the walk takes her, including the $t$ '
+              "minutes spent in the coffee shop. Let's think step by step and "
+              'output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'Every morning Aya goes for a $9$-kilometer-long walk and stops '
+              'at a coffee shop afterwards. When she walks at a constant speed '
+              'of $s$ kilometers per hour, the walk takes her 4 hours, '
+              'including $t$ minutes spent in the coffee shop. When she walks '
+              '$s+2$ kilometers per hour, the walk takes her 2 hours and 24 '
+              'minutes, including $t$ minutes spent in the coffee shop. '
+              'Suppose Aya walks at $s+\\frac{1}{2}$ kilometers per hour. Find '
+              'the number of minutes the walk takes her, including the $t$ '
+              "minutes spent in the coffee shop. Let's think step by step and "
+              'output the final answer within \\boxed{}.',
+   'role': 'user'}]]
+repeated_chat_lst1
+[[{'content': 'Every morning Aya goes for a $9$-kilometer-long walk and stops '
+              'at a coffee shop afterwards. When she walks at a constant speed '
+              'of $s$ kilometers per hour, the walk takes her 4 hours, '
+              'including $t$ minutes spent in the coffee shop. When she walks '
+              '$s+2$ kilometers per hour, the walk takes her 2 hours and 24 '
+              'minutes, including $t$ minutes spent in the coffee shop. '
+              'Suppose Aya walks at $s+\\frac{1}{2}$ kilometers per hour. Find '
+              'the number of minutes the walk takes her, including the $t$ '
+              "minutes spent in the coffee shop. Let's think step by step and "
+              'output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'There exist real numbers $x$ and $y$, both greater than 1, such '
+              'that '
+              '$\\log_x\\left(y^x\\right)=\\log_y\\left(x^{4y}\\right)=10$. '
+              "Find $xy$. Let's think step by step and output the final answer "
+              'within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'Alice and Bob play the following game. A stack of $n$ tokens '
+              'lies before them. The players take turns with Alice going '
+              'first. On each turn, the player removes either $1$ token or $4$ '
+              'tokens from the stack. Whoever removes the last token wins. '
+              'Find the number of positive integers $n$ less than or equal to '
+              '$2024$ for which there exists a strategy for Bob that '
+              "guarantees that Bob will win the game regardless of Alice's "
+              "play. Let's think step by step and output the final answer "
+              'within \\boxed{}.',
+   'role': 'user'}]]
+main_gen.py, input_ids.shape = torch.Size([480, 411]), content: tensor([[ 4227,  4990,  1059,    11,  2670,   279],
+        [   59,  2359,  2075, 47822,    19,    88],
+        [  369, 14261,   429, 35655,   429, 14261],
+        ...,
+        [32696, 47822,    17,    74,  5410,    59],
+        [ 1091,  5779, 17767,    65,    59,  1318],
+        [   13,    18,    21,    21,    11,    15]])
+[1/1] Start to generate.
+ZHS batch len: 480
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:11:05 metrics.py:345] Avg prompt throughput: 1689.2 tokens/s, Avg generation throughput: 227.4 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.4%, CPU KV cache usage: 0.0%.
+[36m(ActorRolloutRefWorker pid=144487)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 32768, 'detokenize': False, 'temperature': 0.6, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:11:10 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3021.3 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:11:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2975.3 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:11:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2973.4 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:11:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2966.3 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:11:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2968.2 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.3%, CPU KV cache usage: 0.0%.[32m [repeated 12x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:11:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2966.5 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:11:41 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2963.7 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:11:46 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2984.9 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.0%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:11:51 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2728.2 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144489)[0m INFO 03-22 19:12:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2942.0 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.6%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:12:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2918.1 tokens/s, Running: 58 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:12:11 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2911.1 tokens/s, Running: 58 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:12:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2903.3 tokens/s, Running: 58 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:12:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2882.7 tokens/s, Running: 56 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:12:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2850.4 tokens/s, Running: 58 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:12:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2841.2 tokens/s, Running: 58 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:12:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2844.0 tokens/s, Running: 57 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:12:41 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2835.7 tokens/s, Running: 56 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.4%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:12:46 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2770.7 tokens/s, Running: 54 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.6%, CPU KV cache usage: 0.0%.[32m [repeated 11x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:12:51 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2717.4 tokens/s, Running: 53 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:12:56 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2716.1 tokens/s, Running: 53 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.6%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:13:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2673.2 tokens/s, Running: 53 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:13:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2660.9 tokens/s, Running: 53 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.6%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:13:11 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2375.8 tokens/s, Running: 53 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:13:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2608.0 tokens/s, Running: 51 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:13:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2542.8 tokens/s, Running: 49 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:13:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2437.6 tokens/s, Running: 46 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:13:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2398.1 tokens/s, Running: 46 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:13:41 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2322.1 tokens/s, Running: 45 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:13:46 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2309.6 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:13:51 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2298.5 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:13:56 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2288.1 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:14:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2401.8 tokens/s, Running: 46 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:14:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2376.4 tokens/s, Running: 46 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 16.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:14:11 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2273.3 tokens/s, Running: 43 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.8%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:14:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2117.5 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:14:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2080.1 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:14:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2078.2 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 16.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:14:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2195.4 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.4%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:14:41 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2187.2 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:14:46 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2180.3 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.3%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:14:51 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2163.3 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:14:56 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2178.3 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:15:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2136.9 tokens/s, Running: 43 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:15:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1936.1 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:15:11 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1921.9 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:15:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1916.8 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.4%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:15:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1900.6 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:15:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1977.1 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:15:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1925.2 tokens/s, Running: 38 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:15:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1897.3 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:15:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1920.7 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:15:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1904.9 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:15:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1884.3 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 23.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:16:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1724.9 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.1%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:16:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1688.7 tokens/s, Running: 33 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:16:11 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1654.9 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:16:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1593.3 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:16:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1652.7 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:16:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1619.3 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.0%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:16:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1603.9 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:16:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1596.0 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:16:41 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1709.7 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.0%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:16:46 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1538.5 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:16:51 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1522.9 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:16:57 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1552.3 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:17:02 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1537.2 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:17:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1539.3 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:17:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1528.2 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:17:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1486.0 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.6%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:17:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1235.0 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:17:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1125.0 tokens/s, Running: 17 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:17:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1045.2 tokens/s, Running: 17 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:17:41 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1364.8 tokens/s, Running: 25 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:17:46 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1347.4 tokens/s, Running: 24 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:17:51 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1303.5 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.6%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:17:56 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1288.6 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144485)[0m INFO 03-22 19:18:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1347.7 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:18:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1024.3 tokens/s, Running: 15 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:18:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1316.9 tokens/s, Running: 25 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:18:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1287.3 tokens/s, Running: 24 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:18:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1265.6 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:18:27 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1223.0 tokens/s, Running: 21 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:18:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1221.4 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:18:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1208.7 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:18:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1219.9 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:18:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1170.4 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:18:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1140.3 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:19:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 647.5 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.0%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:19:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 652.1 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:19:11 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 630.6 tokens/s, Running: 9 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:19:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 586.8 tokens/s, Running: 9 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:19:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 757.3 tokens/s, Running: 12 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:19:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 756.3 tokens/s, Running: 12 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:19:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 710.4 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.4%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:19:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 869.7 tokens/s, Running: 14 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.5%, CPU KV cache usage: 0.0%.[32m [repeated 11x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:19:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 869.9 tokens/s, Running: 14 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:19:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 869.2 tokens/s, Running: 14 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:19:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 868.5 tokens/s, Running: 14 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:19:57 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 964.3 tokens/s, Running: 16 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 16.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:20:02 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 902.6 tokens/s, Running: 15 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:20:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 900.8 tokens/s, Running: 15 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 16.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:20:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 297.6 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:20:21 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 277.7 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144486)[0m INFO 03-22 19:20:26 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 277.8 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144487)[0m INFO 03-22 19:20:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 345.9 tokens/s, Running: 5 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:20:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 369.4 tokens/s, Running: 5 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:20:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 338.1 tokens/s, Running: 5 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:20:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 314.9 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144132)[0m INFO 03-22 19:20:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 236.0 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.7%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:20:57 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 394.7 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.4%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:21:02 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 394.0 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.5%, CPU KV cache usage: 0.0%.[32m [repeated 5x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144484)[0m INFO 03-22 19:21:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 362.1 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.0%, CPU KV cache usage: 0.0%.[32m [repeated 5x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:21:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 516.7 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.8%, CPU KV cache usage: 0.0%.[32m [repeated 5x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144488)[0m INFO 03-22 19:21:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 516.8 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.9%, CPU KV cache usage: 0.0%.[32m [repeated 2x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:21:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 529.3 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.0%, CPU KV cache usage: 0.0%.[32m [repeated 3x across cluster][0m
+<class 'list'> <class 'str'>
+length cutoff ratio: 0.0
++----------------------+-----------------------------------------------------------------------------------------+
+| Metric               | Value                                                                                   |
++======================+=========================================================================================+
+| model_path           | DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k |
++----------------------+-----------------------------------------------------------------------------------------+
+| dataset              | aime.parquet                                                                            |
++----------------------+-----------------------------------------------------------------------------------------+
+| pass@1               | 0.33541666666666664                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+| pass@16              | 0.7666666666666667                                                                      |
++----------------------+-----------------------------------------------------------------------------------------+
+| cons@16              | 0.5529100529100528                                                                      |
++----------------------+-----------------------------------------------------------------------------------------+
+| cutoff_raio          | 0.0                                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+| mean_response_tokens | 17551.660416666666                                                                      |
++----------------------+-----------------------------------------------------------------------------------------+
+| run_hours            | 0.20196426577038235                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+[36m(ActorRolloutRefWorker pid=144490)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m   warnings.warn([32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=144490)[0m INFO 03-22 19:21:27 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 470.6 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.6%, CPU KV cache usage: 0.0%.[32m [repeated 2x across cluster][0m
++ DATA_TYPE=aime25
++ N=16
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k
++ echo 'Datasets: '
+Datasets: 
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime25.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/aime25/aime25_n_16_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=16 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.95 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+2025-03-22 19:21:56,107	INFO worker.py:1841 -- Started a local Ray instance.
+[36m(pid=174900)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=174900)[0m No module named 'vllm._version'
+[36m(pid=174900)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=175838)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=175838)[0m No module named 'vllm._version'
+[36m(pid=175838)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=175841)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=175841)[0m No module named 'vllm._version'
+[36m(pid=175841)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(ActorRolloutRefWorker pid=175838)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(ActorRolloutRefWorker pid=175839)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(ActorRolloutRefWorker pid=175839)[0m   warnings.warn(
+[36m(pid=175837)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:[32m [repeated 5x across cluster][0m
+[36m(pid=175837)[0m No module named 'vllm._version'[32m [repeated 5x across cluster][0m
+[36m(pid=175837)[0m   from vllm.version import __version__ as VLLM_VERSION[32m [repeated 5x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175843)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+Token indices sequence length is longer than the specified maximum sequence length for this model (17891 > 16384). Running this sequence through the model will result in indexing errors
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 16,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/aime25/aime25_n_16_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime25.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.95,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+[36m(ActorRolloutRefWorker pid=174900)[0m Model config after override: Qwen2Config {
+[36m(ActorRolloutRefWorker pid=174900)[0m   "_name_or_path": "/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k",
+[36m(ActorRolloutRefWorker pid=174900)[0m   "architectures": [
+[36m(ActorRolloutRefWorker pid=174900)[0m     "Qwen2ForCausalLM"
+[36m(ActorRolloutRefWorker pid=174900)[0m   ],
+[36m(ActorRolloutRefWorker pid=174900)[0m   "attention_dropout": 0.0,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "bos_token_id": 151646,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "eos_token_id": 151643,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "hidden_act": "silu",
+[36m(ActorRolloutRefWorker pid=174900)[0m   "hidden_size": 1536,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "initializer_range": 0.02,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "intermediate_size": 8960,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "max_position_embeddings": 131072,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "max_window_layers": 21,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "model_type": "qwen2",
+[36m(ActorRolloutRefWorker pid=174900)[0m   "num_attention_heads": 12,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "num_hidden_layers": 28,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "num_key_value_heads": 2,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "pad_token_id": 151643,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "rms_norm_eps": 1e-06,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "rope_scaling": null,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "rope_theta": 10000,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "sliding_window": null,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "tie_word_embeddings": false,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "torch_dtype": "bfloat16",
+[36m(ActorRolloutRefWorker pid=174900)[0m   "transformers_version": "4.45.2",
+[36m(ActorRolloutRefWorker pid=174900)[0m   "use_cache": false,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "use_mrope": false,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "use_sliding_window": false,
+[36m(ActorRolloutRefWorker pid=174900)[0m   "vocab_size": 151936
+[36m(ActorRolloutRefWorker pid=174900)[0m }
+[36m(ActorRolloutRefWorker pid=174900)[0m 
+[36m(ActorRolloutRefWorker pid=174900)[0m NCCL version 2.20.5+cuda12.4
+[36m(ActorRolloutRefWorker pid=174900)[0m Qwen2ForCausalLM contains 1.78B parameters
+[36m(ActorRolloutRefWorker pid=174900)[0m wrap_policy: functools.partial(<function transformer_auto_wrap_policy at 0x14b6a77a3ec0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})
+[36m(ActorRolloutRefWorker pid=174900)[0m Before building vllm rollout, memory allocated (GB): 0.4375143051147461, memory reserved (GB): 3.330078125
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:22:14 config.py:1005] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[36m(ActorRolloutRefWorker pid=175839)[0m WARNING 03-22 19:22:14 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(ActorRolloutRefWorker pid=175840)[0m wrap_policy: functools.partial(<function transformer_auto_wrap_policy at 0x146cb3c2fec0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ActorRolloutRefWorker pid=175839)[0m local rank 0
+[36m(ActorRolloutRefWorker pid=175839)[0m NCCL version 2.20.5+cuda12.4
+[36m(ActorRolloutRefWorker pid=174900)[0m before init cache memory allocated: 4.071012352GB, reserved: 4.223664128GB
+[36m(ActorRolloutRefWorker pid=174900)[0m after init cache memory allocated: 78.554445824GB, reserved: 78.739668992GB
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:22:14 config.py:1005] Chunked prefill is enabled with max_num_batched_tokens=8192.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m WARNING 03-22 19:22:14 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m local rank 0[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 32768, 'detokenize': False, 'temperature': 0.6, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(ActorRolloutRefWorker pid=175840)[0m NCCL version 2.20.5+cuda12.4[32m [repeated 6x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m After building vllm rollout, memory allocated (GB): 69.84480571746826, memory reserved (GB): 73.33203125
+[36m(ActorRolloutRefWorker pid=174900)[0m After building sharding manager, memory allocated (GB): 69.84480571746826, memory reserved (GB): 73.33203125
+len(dataset): 30
+wg.worker_names: ['OKMkpzActorRolloutRefWorker_0:0', 'OKMkpzActorRolloutRefWorker_0:1', 'OKMkpzActorRolloutRefWorker_0:2', 'OKMkpzActorRolloutRefWorker_0:3', 'OKMkpzActorRolloutRefWorker_0:4', 'OKMkpzActorRolloutRefWorker_0:5', 'OKMkpzActorRolloutRefWorker_0:6', 'OKMkpzActorRolloutRefWorker_0:7']
+[1/1] Start to process.
+repeated_chat_lst0
+[[{'content': 'Find the sum of all integer bases $b>9$ for which $17_b$ is a '
+              "divisor of $97_b.$ Let's think step by step and output the "
+              'final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'Find the sum of all integer bases $b>9$ for which $17_b$ is a '
+              "divisor of $97_b.$ Let's think step by step and output the "
+              'final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'Find the sum of all integer bases $b>9$ for which $17_b$ is a '
+              "divisor of $97_b.$ Let's think step by step and output the "
+              'final answer within \\boxed{}.',
+   'role': 'user'}]]
+repeated_chat_lst1
+[[{'content': 'Find the sum of all integer bases $b>9$ for which $17_b$ is a '
+              "divisor of $97_b.$ Let's think step by step and output the "
+              'final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'In $\\triangle ABC$ points $D$ and $E$ lie on $\\overline{AB}$ '
+              'so that $AD < AE < AB$, while points $F$ and $G$ lie on '
+              '$\\overline{AC}$ so that $AF < AG < AC$. Suppose $AD = 4$, $DE '
+              '= 16$, $EB = 8$, $AF = 13$, $FG = 52$, and $GC = 26$. Let $M$ '
+              'be the reflection of $D$ through $F$, and let $N$ be the '
+              'reflection of $G$ through $E$. The area of quadrilateral $DEGF$ '
+              "is $288$. Find the area of heptagon $AFNBCEM$. Let's think step "
+              'by step and output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'The $9$ members of a baseball team went to an ice-cream parlor '
+              'after their game. Each player had a single scoop cone of '
+              'chocolate, vanilla, or strawberry ice cream. At least one '
+              'player chose each flavor, and the number of players who chose '
+              'chocolate was greater than the number of players who chose '
+              'vanilla, which was greater than the number of players who chose '
+              'strawberry. Let $N$ be the number of different assignments of '
+              'flavors to players that meet these conditions. Find the '
+              "remainder when $N$ is divided by $1000.$ Let's think step by "
+              'step and output the final answer within \\boxed{}.',
+   'role': 'user'}]]
+main_gen.py, input_ids.shape = torch.Size([480, 848]), content: tensor([[  369,   892,   400,    16,    22,   880],
+        [   23,    23, 12947,  7379,   279,  3082],
+        [ 7379,   279, 26313,   979,   400,    45],
+        ...,
+        [  279, 26313,   979,   400,    76, 38334],
+        [   77,    59, 26888,    18,     3,   369],
+        [ 2750,   315,   400,    87, 12947,  7379]])
+[1/1] Start to generate.
+ZHS batch len: 480
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:22:26 metrics.py:345] Avg prompt throughput: 2300.8 tokens/s, Avg generation throughput: 427.5 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.5%, CPU KV cache usage: 0.0%.
+[36m(ActorRolloutRefWorker pid=175842)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 32768, 'detokenize': False, 'temperature': 0.6, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:22:31 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3038.2 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:22:36 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3040.4 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:22:41 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3031.6 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:22:46 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3061.3 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175843)[0m INFO 03-22 19:22:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2911.0 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175843)[0m INFO 03-22 19:22:57 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2913.8 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175843)[0m INFO 03-22 19:23:02 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2902.9 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175840)[0m INFO 03-22 19:23:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2988.2 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:23:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2742.4 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:23:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2980.3 tokens/s, Running: 60 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:23:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2949.1 tokens/s, Running: 59 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:23:27 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2931.0 tokens/s, Running: 59 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:23:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2896.9 tokens/s, Running: 58 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175838)[0m INFO 03-22 19:23:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2937.5 tokens/s, Running: 59 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:23:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2870.3 tokens/s, Running: 58 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:23:51 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2764.6 tokens/s, Running: 53 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:23:56 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2708.4 tokens/s, Running: 52 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:24:01 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2698.1 tokens/s, Running: 52 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:24:06 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2686.9 tokens/s, Running: 51 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:24:11 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2647.2 tokens/s, Running: 51 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:24:16 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2642.9 tokens/s, Running: 51 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:24:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2653.7 tokens/s, Running: 51 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:24:27 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2398.7 tokens/s, Running: 51 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:24:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2607.4 tokens/s, Running: 50 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175843)[0m INFO 03-22 19:24:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2135.7 tokens/s, Running: 46 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.0%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:24:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2355.4 tokens/s, Running: 45 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:24:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2344.0 tokens/s, Running: 45 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.8%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:24:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2328.0 tokens/s, Running: 43 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:24:57 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2259.4 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175838)[0m INFO 03-22 19:25:02 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2295.8 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:25:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2282.1 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:25:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2281.1 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:25:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2284.9 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:25:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2286.3 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:25:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2303.8 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 16.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:25:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2284.9 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:25:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2243.5 tokens/s, Running: 43 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:25:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2260.1 tokens/s, Running: 43 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.6%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:25:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2246.6 tokens/s, Running: 43 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:25:57 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2186.3 tokens/s, Running: 41 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:02 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2101.0 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2071.9 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2067.7 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2057.0 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2028.7 tokens/s, Running: 38 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:26:27 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2125.6 tokens/s, Running: 44 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.0%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:26:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1823.8 tokens/s, Running: 43 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:38 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1690.2 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:43 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1918.9 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:48 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1904.5 tokens/s, Running: 36 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:26:53 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1876.7 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175838)[0m INFO 03-22 19:26:58 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1891.6 tokens/s, Running: 36 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:27:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1807.7 tokens/s, Running: 36 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:27:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1781.2 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:27:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1817.4 tokens/s, Running: 36 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.1%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175840)[0m INFO 03-22 19:27:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1731.8 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175840)[0m INFO 03-22 19:27:27 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1696.5 tokens/s, Running: 33 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:27:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1718.7 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:27:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1689.6 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:27:43 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1802.5 tokens/s, Running: 39 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 23.9%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:27:48 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1631.8 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:27:53 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1601.7 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175838)[0m INFO 03-22 19:27:58 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1650.0 tokens/s, Running: 33 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175838)[0m INFO 03-22 19:28:03 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1621.8 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:28:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1519.0 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.6%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:28:17 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1506.8 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:28:22 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1478.7 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:28:27 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1465.9 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:28:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1490.3 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:28:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1477.3 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:28:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1458.2 tokens/s, Running: 28 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 21.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175840)[0m INFO 03-22 19:28:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1356.0 tokens/s, Running: 25 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:28:53 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1453.8 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 23.4%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:28:58 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1439.3 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 23.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:29:03 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1430.2 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 24.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:29:08 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1524.5 tokens/s, Running: 33 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 25.2%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:29:13 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1192.6 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 16.6%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:29:18 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1113.1 tokens/s, Running: 18 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:29:23 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1081.6 tokens/s, Running: 18 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:29:32 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1033.7 tokens/s, Running: 16 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.7%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:29:37 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1280.6 tokens/s, Running: 24 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:29:42 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1251.7 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.1%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175840)[0m INFO 03-22 19:29:48 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 786.0 tokens/s, Running: 12 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175843)[0m INFO 03-22 19:29:53 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1106.6 tokens/s, Running: 19 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 16.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:29:58 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1227.4 tokens/s, Running: 23 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 20.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:30:03 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1205.3 tokens/s, Running: 22 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 19.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:30:08 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1174.7 tokens/s, Running: 21 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 18.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:30:13 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1293.3 tokens/s, Running: 26 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:30:18 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1282.9 tokens/s, Running: 25 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:30:23 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1263.4 tokens/s, Running: 25 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 22.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:30:28 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 640.7 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:30:33 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 644.3 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175838)[0m INFO 03-22 19:30:38 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 804.0 tokens/s, Running: 12 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.0%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:30:47 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 588.5 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:30:52 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 780.1 tokens/s, Running: 12 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 12.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:30:58 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 753.2 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.6%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:31:03 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 720.0 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:31:08 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 691.7 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175840)[0m INFO 03-22 19:31:13 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 450.2 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175840)[0m INFO 03-22 19:31:18 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 449.4 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:31:23 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 844.0 tokens/s, Running: 13 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:31:28 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 805.9 tokens/s, Running: 12 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:31:33 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 694.8 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.7%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:31:38 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 641.0 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.7%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:31:43 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 638.7 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 10.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:31:48 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 638.0 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=174900)[0m INFO 03-22 19:31:53 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 207.6 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175838)[0m INFO 03-22 19:31:58 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 459.0 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.4%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:32:07 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 207.7 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175839)[0m INFO 03-22 19:32:12 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 207.7 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175837)[0m INFO 03-22 19:32:18 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 281.1 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.0%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:32:23 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 458.2 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.6%, CPU KV cache usage: 0.0%.[32m [repeated 6x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:32:28 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 457.0 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.7%, CPU KV cache usage: 0.0%.[32m [repeated 4x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:32:33 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 356.0 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.0%, CPU KV cache usage: 0.0%.[32m [repeated 3x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:32:38 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 257.7 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.8%, CPU KV cache usage: 0.0%.[32m [repeated 2x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175841)[0m INFO 03-22 19:32:43 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 169.0 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.3%, CPU KV cache usage: 0.0%.[32m [repeated 2x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:32:48 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 148.2 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.5%, CPU KV cache usage: 0.0%.[32m [repeated 2x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m INFO 03-22 19:32:53 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 140.9 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.5%, CPU KV cache usage: 0.0%.
+<class 'list'> <class 'str'>
+length cutoff ratio: 0.0
++----------------------+-----------------------------------------------------------------------------------------+
+| Metric               | Value                                                                                   |
++======================+=========================================================================================+
+| model_path           | DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k |
++----------------------+-----------------------------------------------------------------------------------------+
+| dataset              | aime25.parquet                                                                          |
++----------------------+-----------------------------------------------------------------------------------------+
+| pass@1               | 0.27291666666666664                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+| pass@16              | 0.5                                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+| cons@16              | 0.4                                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+| cutoff_raio          | 0.0                                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+| mean_response_tokens | 17110.060416666667                                                                      |
++----------------------+-----------------------------------------------------------------------------------------+
+| run_hours            | 0.18655883881780835                                                                     |
++----------------------+-----------------------------------------------------------------------------------------+
+[36m(ActorRolloutRefWorker pid=175842)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=175842)[0m   warnings.warn([32m [repeated 7x across cluster][0m
++ for MODEL_NAME in DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ MODEL_PATH=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ OUTPUT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ DATA_TYPE=aime
++ N=16
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ echo 'Datasets: '
+Datasets: 
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks/aime/aime_n_16_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=16 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.95 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 16,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks/aime/aime_n_16_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.95,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+Error executing job with overrides: ['trainer.nnodes=1', 'trainer.n_gpus_per_node=8', 'data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime.parquet', 'data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks/aime/aime_n_16_temp_0.6_topp_0.95_maxlen_32768.json', 'data.n_samples=16', 'data.batch_size=2048', 'model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks', 'rollout.temperature=0.6', 'rollout.response_length=32768', 'rollout.top_k=-1', 'rollout.top_p=0.95', 'rollout.gpu_memory_utilization=0.95', 'rollout.tensor_model_parallel_size=1', '+data.skip_format_reward=True']
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/.local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/GLOBALFS/gznwp_3/.local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/trainer/main_generation.py", line 55, in main
+    tokenizer = hf_tokenizer(local_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/utils/tokenizer.py", line 55, in hf_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(name_or_path, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 844, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 676, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/utils/hub.py", line 469, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
++ DATA_TYPE=aime25
++ N=16
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ echo 'Datasets: '
+Datasets: 
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime25.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks/aime25/aime25_n_16_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=16 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.95 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 16,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks/aime25/aime25_n_16_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime25.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.95,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+Error executing job with overrides: ['trainer.nnodes=1', 'trainer.n_gpus_per_node=8', 'data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime25.parquet', 'data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks/aime25/aime25_n_16_temp_0.6_topp_0.95_maxlen_32768.json', 'data.n_samples=16', 'data.batch_size=2048', 'model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks', 'rollout.temperature=0.6', 'rollout.response_length=32768', 'rollout.top_k=-1', 'rollout.top_p=0.95', 'rollout.gpu_memory_utilization=0.95', 'rollout.tensor_model_parallel_size=1', '+data.skip_format_reward=True']
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/.local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/GLOBALFS/gznwp_3/.local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 154, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/trainer/main_generation.py", line 55, in main
+    tokenizer = hf_tokenizer(local_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/utils/tokenizer.py", line 55, in hf_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(name_or_path, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 844, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 676, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/transformers/utils/hub.py", line 469, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-fuserl-pref-v3.3.3-dpo-beta0.3-lr5e-7-ep1-bs16-cutoff-16ks'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

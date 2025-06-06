@@ -1,0 +1,443 @@
++ export VLLM_ATTENTION_BACKEND=FLASH_ATTN
++ VLLM_ATTENTION_BACKEND=FLASH_ATTN
++ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
++ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
++ MODEL_ROOT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1
++ OUTPUT_ROOT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs
++ GPU_NUM=8
++ TP=1
++ TEMP=0.6
++ TOP_P=0.95
++ MAX_LEN=32768
++ for MODEL_NAME in DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k
++ MODEL_PATH=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k
++ OUTPUT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k
++ DATATYPES=("math")
++ N=1
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k
++ echo 'Datasets: math'
+Datasets: math
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k
++ for DATA_TYPE in "${DATATYPES[@]}"
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=1 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.85 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 1,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.85,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+Error executing job with overrides: ['trainer.nnodes=1', 'trainer.n_gpus_per_node=8', 'data.path=/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet', 'data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json', 'data.n_samples=1', 'data.batch_size=2048', 'model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-s1k-math-qwq-bs16-ep5-lr1e-5-cutoff-16k', 'rollout.temperature=0.6', 'rollout.response_length=32768', 'rollout.top_k=-1', 'rollout.top_p=0.95', 'rollout.gpu_memory_utilization=0.85', 'rollout.tensor_model_parallel_size=1', '+data.skip_format_reward=True']
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/trainer/main_generation.py", line 69, in main
+    dataset = pd.read_parquet(config.data.path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
++ MODEL_ROOT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k
++ for MODEL_NAME in DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20 DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40 DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47
++ MODEL_PATH=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20
++ OUTPUT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20
++ echo 'Datasets: math'
+Datasets: math
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20
++ for DATA_TYPE in "${DATATYPES[@]}"
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=1 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20 rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.85 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 1,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.85,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+Error executing job with overrides: ['trainer.nnodes=1', 'trainer.n_gpus_per_node=8', 'data.path=/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet', 'data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json', 'data.n_samples=1', 'data.batch_size=2048', 'model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20', 'rollout.temperature=0.6', 'rollout.response_length=32768', 'rollout.top_k=-1', 'rollout.top_p=0.95', 'rollout.gpu_memory_utilization=0.85', 'rollout.tensor_model_parallel_size=1', '+data.skip_format_reward=True']
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/trainer/main_generation.py", line 69, in main
+    dataset = pd.read_parquet(config.data.path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
++ for MODEL_NAME in DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20 DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40 DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47
++ MODEL_PATH=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40
++ OUTPUT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40
++ echo 'Datasets: math'
+Datasets: math
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40
++ for DATA_TYPE in "${DATATYPES[@]}"
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=1 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40 rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.85 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 1,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.85,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+Error executing job with overrides: ['trainer.nnodes=1', 'trainer.n_gpus_per_node=8', 'data.path=/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet', 'data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json', 'data.n_samples=1', 'data.batch_size=2048', 'model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40', 'rollout.temperature=0.6', 'rollout.response_length=32768', 'rollout.top_k=-1', 'rollout.top_p=0.95', 'rollout.gpu_memory_utilization=0.85', 'rollout.tensor_model_parallel_size=1', '+data.skip_format_reward=True']
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/trainer/main_generation.py", line 69, in main
+    dataset = pd.read_parquet(config.data.path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
++ for MODEL_NAME in DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt20 DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt40 DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47
++ MODEL_PATH=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47
++ OUTPUT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47
++ echo 'Datasets: math'
+Datasets: math
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47
++ for DATA_TYPE in "${DATATYPES[@]}"
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/data/wanfq/fuse3/Light-R1/deepscaler-release/processed_data/math.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=1 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-7B-fuserl-sft-v3-fuserl-pref-v3.3-dpo-beta0.1-lr5e-7-ep1-bs16-cutoff-16k-ckpt47 rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.85 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+slurmstepd: error: *** JOB 35233 ON an12 CANCELLED AT 2025-03-18T10:33:52 ***

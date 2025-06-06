@@ -1,0 +1,42 @@
+### model
+model_name_or_path: /GLOBALFS/gznwp_3/qxj/models/Qwen2.5-3B-Instruct
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full 
+deepspeed: examples/deepspeed/ds_z3_config.json #ds_z3_config.json
+
+### dataset
+dataset: Light_R1_chosen_sft
+template: qwen #qwen llama3
+cutoff_len: 16384
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/model_fusion/Qwen2.5-3B-Instruct/0424/Light-R1-chosen-sft
+logging_steps: 10
+save_steps: 200
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 2
+learning_rate: 5.0e-5
+num_train_epochs: 5
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+flash_attn: fa2
+save_only_model: true
+seed: 42
+# sequence_parallel_size: 4
+
+### eval
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 100

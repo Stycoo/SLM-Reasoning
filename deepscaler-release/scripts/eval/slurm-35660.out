@@ -1,0 +1,613 @@
++ export VLLM_ATTENTION_BACKEND=FLASH_ATTN
++ VLLM_ATTENTION_BACKEND=FLASH_ATTN
++ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
++ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
++ MODEL_ROOT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k
++ OUTPUT_ROOT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs
++ GPU_NUM=8
++ TP=1
++ TEMP=0.6
++ TOP_P=0.95
++ MAX_LEN=32768
++ for MODEL_NAME in DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30 DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-60 DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-90 DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-132
++ MODEL_PATH=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30
++ OUTPUT_DIR=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30
++ DATA_TYPE=math
++ N=1
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30
++ echo 'Datasets: '
+Datasets: 
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/math.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=1 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30 rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.95 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+2025-03-21 14:34:25,116	INFO worker.py:1841 -- Started a local Ray instance.
+[36m(pid=2858339)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2858339)[0m No module named 'vllm._version'
+[36m(pid=2858339)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=2858702)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2858702)[0m No module named 'vllm._version'
+[36m(pid=2858702)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=2858703)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2858703)[0m No module named 'vllm._version'
+[36m(pid=2858703)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(ActorRolloutRefWorker pid=2858339)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(pid=2858706)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:[32m [repeated 5x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=2858706)[0m No module named 'vllm._version'[32m [repeated 5x across cluster][0m
+[36m(pid=2858706)[0m   from vllm.version import __version__ as VLLM_VERSION[32m [repeated 5x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(ActorRolloutRefWorker pid=2858339)[0m   warnings.warn(
+[36m(ActorRolloutRefWorker pid=2858705)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m Traceback (most recent call last):
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/worker/model_runner_base.py", line 116, in _wrapper
+[36m(ActorRolloutRefWorker pid=2858700)[0m     return func(*args, **kwargs)
+[36m(ActorRolloutRefWorker pid=2858700)[0m            ^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/worker/model_runner.py", line 1708, in execute_model
+[36m(ActorRolloutRefWorker pid=2858700)[0m     output: SamplerOutput = self.model.sample(
+[36m(ActorRolloutRefWorker pid=2858700)[0m                             ^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/models/qwen2.py", line 433, in sample
+[36m(ActorRolloutRefWorker pid=2858700)[0m     next_tokens = self.sampler(logits, sampling_metadata)
+[36m(ActorRolloutRefWorker pid=2858700)[0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[36m(ActorRolloutRefWorker pid=2858700)[0m     return self._call_impl(*args, **kwargs)
+[36m(ActorRolloutRefWorker pid=2858700)[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[36m(ActorRolloutRefWorker pid=2858700)[0m     return forward_call(*args, **kwargs)
+[36m(ActorRolloutRefWorker pid=2858700)[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/layers/sampler.py", line 231, in forward
+[36m(ActorRolloutRefWorker pid=2858700)[0m     self._init_sampling_tensors(logits, sampling_metadata)
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/layers/sampler.py", line 195, in _init_sampling_tensors
+[36m(ActorRolloutRefWorker pid=2858700)[0m     do_min_p) = SamplingTensors.from_sampling_metadata(
+[36m(ActorRolloutRefWorker pid=2858700)[0m                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/sampling_metadata.py", line 471, in from_sampling_metadata
+[36m(ActorRolloutRefWorker pid=2858700)[0m     sampling_tensors = SamplingTensors.from_lists(
+[36m(ActorRolloutRefWorker pid=2858700)[0m                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/sampling_metadata.py", line 529, in from_lists
+[36m(ActorRolloutRefWorker pid=2858700)[0m     temperatures_t = torch.tensor(
+[36m(ActorRolloutRefWorker pid=2858700)[0m                      ^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m RuntimeError: CUDA error: an illegal memory access was encountered
+[36m(ActorRolloutRefWorker pid=2858700)[0m CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[36m(ActorRolloutRefWorker pid=2858700)[0m For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[36m(ActorRolloutRefWorker pid=2858700)[0m Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+[36m(ActorRolloutRefWorker pid=2858700)[0m 
+[36m(ActorRolloutRefWorker pid=2858700)[0m 
+[36m(ActorRolloutRefWorker pid=2858700)[0m The above exception was the direct cause of the following exception:
+[36m(ActorRolloutRefWorker pid=2858700)[0m 
+[36m(ActorRolloutRefWorker pid=2858700)[0m Traceback (most recent call last):
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/workers/rollout/vllm_rollout/vllm_rollout.py", line 207, in generate_sequences
+[36m(ActorRolloutRefWorker pid=2858700)[0m     output = self.inference_engine.generate(
+[36m(ActorRolloutRefWorker pid=2858700)[0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/utils.py", line 1063, in inner
+[36m(ActorRolloutRefWorker pid=2858700)[0m     return fn(*args, **kwargs)
+[36m(ActorRolloutRefWorker pid=2858700)[0m            ^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 353, in generate
+[36m(ActorRolloutRefWorker pid=2858700)[0m     outputs = self._run_engine(use_tqdm=use_tqdm)
+[36m(ActorRolloutRefWorker pid=2858700)[0m               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/third_party/vllm/vllm_v_0_6_3/llm.py", line 166, in _run_engine
+[36m(ActorRolloutRefWorker pid=2858700)[0m     outputs = super()._run_engine(use_tqdm=use_tqdm)
+[36m(ActorRolloutRefWorker pid=2858700)[0m               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 879, in _run_engine
+[36m(ActorRolloutRefWorker pid=2858700)[0m     step_outputs = self.llm_engine.step()
+[36m(ActorRolloutRefWorker pid=2858700)[0m                    ^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 1386, in step
+[36m(ActorRolloutRefWorker pid=2858700)[0m     outputs = self.model_executor.execute_model(
+[36m(ActorRolloutRefWorker pid=2858700)[0m               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/third_party/vllm/vllm_v_0_6_3/spmd_gpu_executor.py", line 163, in execute_model
+[36m(ActorRolloutRefWorker pid=2858700)[0m     all_outputs = self.worker.execute_model(execute_model_req=execute_model_req)
+[36m(ActorRolloutRefWorker pid=2858700)[0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/third_party/vllm/vllm_v_0_6_3/worker.py", line 267, in execute_model
+[36m(ActorRolloutRefWorker pid=2858700)[0m     return self.model_runner.execute_model(
+[36m(ActorRolloutRefWorker pid=2858700)[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(ActorRolloutRefWorker pid=2858700)[0m     return func(*args, **kwargs)
+[36m(ActorRolloutRefWorker pid=2858700)[0m            ^^^^^^^^^^^^^^^^^^^^^
+[36m(ActorRolloutRefWorker pid=2858700)[0m   File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/worker/model_runner_base.py", line 146, in _wrapper
+[36m(ActorRolloutRefWorker pid=2858700)[0m     raise type(err)(f"Error in model execution: "
+[36m(ActorRolloutRefWorker pid=2858700)[0m RuntimeError: Error in model execution: CUDA error: an illegal memory access was encountered
+[36m(ActorRolloutRefWorker pid=2858700)[0m CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[36m(ActorRolloutRefWorker pid=2858700)[0m For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[36m(ActorRolloutRefWorker pid=2858700)[0m Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+[36m(ActorRolloutRefWorker pid=2858700)[0m 
+[36m(ActorRolloutRefWorker pid=2858705)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858705)[0m   warnings.warn([32m [repeated 7x across cluster][0m
+{'actor': {'fsdp_config': {'fsdp_size': -1,
+                           'grad_offload': False,
+                           'optimizer_offload': False,
+                           'param_offload': False,
+                           'wrap_policy': {'min_num_params': 0}},
+           'optim': {'lr': 1e-06,
+                     'lr_warmup_steps_ratio': 0.0,
+                     'min_lr_ratio': None,
+                     'total_training_steps': -1,
+                     'warmup_style': 'constant'},
+           'strategy': 'fsdp',
+           'ulysses_sequence_parallel_size': 1},
+ 'data': {'batch_size': 2048,
+          'data_source_key': 'data_source',
+          'n_samples': 1,
+          'output_path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json',
+          'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/math.parquet',
+          'prompt_key': 'prompt',
+          'response_key': 'responses',
+          'reward_model_key': 'reward_model',
+          'skip_format_reward': True},
+ 'model': {'external_lib': None,
+           'path': '/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30'},
+ 'rollout': {'do_sample': True,
+             'dtype': 'bfloat16',
+             'enable_chunked_prefill': True,
+             'enforce_eager': True,
+             'free_cache_engine': True,
+             'gpu_memory_utilization': 0.95,
+             'ignore_eos': False,
+             'load_format': 'dummy_dtensor',
+             'log_prob_micro_batch_size': 8,
+             'max_num_batched_tokens': 8192,
+             'max_num_seqs': 1024,
+             'micro_batch_size': 256,
+             'n': 1,
+             'n_val': 1,
+             'name': 'vllm',
+             'prompt_length': 1536,
+             'response_length': 32768,
+             'temperature': 0.6,
+             'tensor_model_parallel_size': 1,
+             'top_k': -1,
+             'top_p': 0.95},
+ 'trainer': {'n_gpus_per_node': 8, 'nnodes': 1}}
+[36m(ActorRolloutRefWorker pid=2858339)[0m Model config after override: Qwen2Config {
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "_name_or_path": "/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30",
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "architectures": [
+[36m(ActorRolloutRefWorker pid=2858339)[0m     "Qwen2ForCausalLM"
+[36m(ActorRolloutRefWorker pid=2858339)[0m   ],
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "attention_dropout": 0.0,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "bos_token_id": 151646,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "eos_token_id": 151643,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "hidden_act": "silu",
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "hidden_size": 1536,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "initializer_range": 0.02,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "intermediate_size": 8960,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "max_position_embeddings": 131072,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "max_window_layers": 21,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "model_type": "qwen2",
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "num_attention_heads": 12,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "num_hidden_layers": 28,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "num_key_value_heads": 2,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "pad_token_id": 151643,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "rms_norm_eps": 1e-06,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "rope_scaling": null,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "rope_theta": 10000,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "sliding_window": null,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "tie_word_embeddings": false,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "torch_dtype": "bfloat16",
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "transformers_version": "4.45.2",
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "use_cache": false,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "use_mrope": false,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "use_sliding_window": false,
+[36m(ActorRolloutRefWorker pid=2858339)[0m   "vocab_size": 151936
+[36m(ActorRolloutRefWorker pid=2858339)[0m }
+[36m(ActorRolloutRefWorker pid=2858339)[0m 
+[36m(ActorRolloutRefWorker pid=2858339)[0m NCCL version 2.20.5+cuda12.4
+[36m(ActorRolloutRefWorker pid=2858339)[0m Qwen2ForCausalLM contains 1.78B parameters
+[36m(ActorRolloutRefWorker pid=2858339)[0m wrap_policy: functools.partial(<function transformer_auto_wrap_policy at 0x14a144ce3ec0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})
+[36m(ActorRolloutRefWorker pid=2858339)[0m Before building vllm rollout, memory allocated (GB): 0.4375143051147461, memory reserved (GB): 3.330078125
+[36m(ActorRolloutRefWorker pid=2858705)[0m wrap_policy: functools.partial(<function transformer_auto_wrap_policy at 0x145336e33ec0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:35:29 config.py:1005] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[36m(ActorRolloutRefWorker pid=2858339)[0m WARNING 03-21 14:35:29 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(ActorRolloutRefWorker pid=2858339)[0m local rank 0
+[36m(ActorRolloutRefWorker pid=2858706)[0m NCCL version 2.20.5+cuda12.4
+[36m(ActorRolloutRefWorker pid=2858705)[0m INFO 03-21 14:35:29 config.py:1005] Chunked prefill is enabled with max_num_batched_tokens=8192.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858705)[0m WARNING 03-21 14:35:29 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858705)[0m local rank 0[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m before init cache memory allocated: 4.071012352GB, reserved: 4.223664128GB
+[36m(ActorRolloutRefWorker pid=2858339)[0m after init cache memory allocated: 78.554445824GB, reserved: 78.739668992GB
+[36m(ActorRolloutRefWorker pid=2858339)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 32768, 'detokenize': False, 'temperature': 0.6, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(ActorRolloutRefWorker pid=2858339)[0m After building vllm rollout, memory allocated (GB): 69.84480571746826, memory reserved (GB): 73.33203125
+[36m(ActorRolloutRefWorker pid=2858339)[0m After building sharding manager, memory allocated (GB): 69.84480571746826, memory reserved (GB): 73.33203125
+[36m(ActorRolloutRefWorker pid=2858705)[0m NCCL version 2.20.5+cuda12.4[32m [repeated 6x across cluster][0m
+len(dataset): 500
+wg.worker_names: ['vGsTZ4ActorRolloutRefWorker_0:0', 'vGsTZ4ActorRolloutRefWorker_0:1', 'vGsTZ4ActorRolloutRefWorker_0:2', 'vGsTZ4ActorRolloutRefWorker_0:3', 'vGsTZ4ActorRolloutRefWorker_0:4', 'vGsTZ4ActorRolloutRefWorker_0:5', 'vGsTZ4ActorRolloutRefWorker_0:6', 'vGsTZ4ActorRolloutRefWorker_0:7']
+[1/1] Start to process.
+repeated_chat_lst0
+[[{'content': 'Convert the point $(0,3)$ in rectangular coordinates to polar '
+              'coordinates.  Enter your answer in the form $(r,\\theta),$ '
+              "where $r > 0$ and $0 \\le \\theta < 2 \\pi.$ Let's think step "
+              'by step and output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'Define\n'
+              '\\[p = \\sum_{k = 1}^\\infty \\frac{1}{k^2} \\quad \\text{and} '
+              '\\quad q = \\sum_{k = 1}^\\infty \\frac{1}{k^3}.\\]Find a way '
+              'to write\n'
+              '\\[\\sum_{j = 1}^\\infty \\sum_{k = 1}^\\infty \\frac{1}{(j + '
+              "k)^3}\\]in terms of $p$ and $q.$ Let's think step by step and "
+              'output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'If $f(x) = \\frac{3x-2}{x-2}$, what is the value of $f(-2) '
+              "+f(-1)+f(0)$? Express your answer as a common fraction. Let's "
+              'think step by step and output the final answer within '
+              '\\boxed{}.',
+   'role': 'user'}]]
+repeated_chat_lst1
+[[{'content': 'Convert the point $(0,3)$ in rectangular coordinates to polar '
+              'coordinates.  Enter your answer in the form $(r,\\theta),$ '
+              "where $r > 0$ and $0 \\le \\theta < 2 \\pi.$ Let's think step "
+              'by step and output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'Define\n'
+              '\\[p = \\sum_{k = 1}^\\infty \\frac{1}{k^2} \\quad \\text{and} '
+              '\\quad q = \\sum_{k = 1}^\\infty \\frac{1}{k^3}.\\]Find a way '
+              'to write\n'
+              '\\[\\sum_{j = 1}^\\infty \\sum_{k = 1}^\\infty \\frac{1}{(j + '
+              "k)^3}\\]in terms of $p$ and $q.$ Let's think step by step and "
+              'output the final answer within \\boxed{}.',
+   'role': 'user'}],
+ [{'content': 'If $f(x) = \\frac{3x-2}{x-2}$, what is the value of $f(-2) '
+              "+f(-1)+f(0)$? Express your answer as a common fraction. Let's "
+              'think step by step and output the final answer within '
+              '\\boxed{}.',
+   'role': 'user'}]]
+main_gen.py, input_ids.shape = torch.Size([500, 809]), content: tensor([[  220,    15,     3,   323,   400,    15],
+        [  488,   595, 29776,    18, 11035,    60],
+        [ 4080,    16,  7257,    69,     7,    15],
+        ...,
+        [23921, 11067,   614,   279,  1852,  3084],
+        [   64,    62,    18,   284,   264,    62],
+        [  284,   220,    20,    17, 24884, 43298]])
+dp_size 8 is not divisible by real_batch_size 500, add 4 dummy data
+[1/1] Start to generate.
+ZHS batch len: 504
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:35:54 metrics.py:345] Avg prompt throughput: 952.7 tokens/s, Avg generation throughput: 11.6 tokens/s, Running: 63 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+[36m(ActorRolloutRefWorker pid=2858705)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 32768, 'detokenize': False, 'temperature': 0.6, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:35:59 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3094.6 tokens/s, Running: 63 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.8%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:36:09 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3139.2 tokens/s, Running: 63 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.0%, CPU KV cache usage: 0.0%.[32m [repeated 16x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:36:19 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2827.7 tokens/s, Running: 52 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.7%, CPU KV cache usage: 0.0%.[32m [repeated 16x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858703)[0m INFO 03-21 14:36:24 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2766.8 tokens/s, Running: 50 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.1%, CPU KV cache usage: 0.0%.[32m [repeated 15x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858702)[0m INFO 03-21 14:36:34 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2339.1 tokens/s, Running: 42 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:36:39 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 2036.8 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:36:44 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1810.6 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.4%, CPU KV cache usage: 0.0%.[32m [repeated 14x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:36:49 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1733.6 tokens/s, Running: 27 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.2%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:36:54 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1791.3 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:36:59 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1730.3 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:37:09 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1314.3 tokens/s, Running: 21 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.4%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858706)[0m INFO 03-21 14:37:09 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation thr
+[36m(ActorRolloutRefWorker pid=2858706)[0m oughput: 1443.2 tokens/s, Running: 22 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.5%, CPU KV cache usage: 0.0%.
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:37:14 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1262.2 tokens/s, Running: 19 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.3%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:37:19 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1277.6 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.8%, CPU KV cache usage: 0.0%.[32m [repeated 14x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:37:24 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1254.1 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.0%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:37:30 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1308.0 tokens/s, Running: 22 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.4%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:37:35 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1245.0 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.3%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:37:44 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 736.9 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.8%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:37:49 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 648.8 tokens/s, Running: 9 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858704)[0m INFO 03-21 14:37:54 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 725.6 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.0%, CPU KV cache usage: 0.0%.[32m [repeated 12x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:37:59 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 864.5 tokens/s, Running: 13 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.7%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:38:05 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 878.3 tokens/s, Running: 14 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.0%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:38:14 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 520.4 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.3%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:38:19 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 477.9 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:38:24 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 801.1 tokens/s, Running: 12 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.2%, CPU KV cache usage: 0.0%.[32m [repeated 14x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:38:30 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 492.7 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.4%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:38:35 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 458.5 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:38:44 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 412.4 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858704)[0m INFO 03-21 14:38:49 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 472.0 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.9%, CPU KV cache usage: 0.0%.[32m [repeated 12x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:38:54 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 671.2 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.3%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:39:00 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 372.7 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.7%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:39:09 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 411.9 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.9%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858706)[0m INFO 03-21 14:39:14 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 399.7 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.8%, CPU KV cache usage: 0.0%.[32m [repeated 11x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:39:19 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 584.9 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.0%, CPU KV cache usage: 0.0%.[32m [repeated 11x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:39:25 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 202.3 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:39:30 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 202.5 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.5%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:39:39 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 303.6 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:39:44 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 241.6 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.7%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858704)[0m INFO 03-21 14:39:49 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 277.6 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.3%, CPU KV cache usage: 0.0%.[32m [repeated 11x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858701)[0m INFO 03-21 14:39:55 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 136.7 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.2%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:40:04 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 211.7 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.9%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:40:09 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 148.6 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.3%, CPU KV cache usage: 0.0%.[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858706)[0m INFO 03-21 14:40:14 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 231.3 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.9%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:40:19 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 411.8 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.9%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:40:29 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 142.6 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.4%, CPU KV cache usage: 0.0%.[32m [repeated 8x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:40:34 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 142.6 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.4%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:40:39 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 411.7 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.2%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858339)[0m INFO 03-21 14:40:49 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 142.4 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.5%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858706)[0m INFO 03-21 14:40:54 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 204.6 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.2%, CPU KV cache usage: 0.0%.[32m [repeated 10x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m INFO 03-21 14:41:00 model_runner_base.py:120] Writing input of failed execution to /tmp/err_execute_model_input_20250321-144100.pkl...
+[36m(ActorRolloutRefWorker pid=2858705)[0m INFO 03-21 14:40:59 metrics.py:345] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 465.9 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.2%, CPU KV cache usage: 0.0%.[32m [repeated 9x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2858700)[0m WARNING 03-21 14:41:00 model_runner_base.py:143] Failed to pickle inputs of failed execution: CUDA error: an illegal memory access was encountered
+[36m(ActorRolloutRefWorker pid=2858700)[0m WARNING 03-21 14:41:00 model_runner_base.py:143] CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[36m(ActorRolloutRefWorker pid=2858700)[0m WARNING 03-21 14:41:00 model_runner_base.py:143] For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[36m(ActorRolloutRefWorker pid=2858700)[0m WARNING 03-21 14:41:00 model_runner_base.py:143] Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+[36m(ActorRolloutRefWorker pid=2858700)[0m WARNING 03-21 14:41:00 model_runner_base.py:143] 
+[36m(ActorRolloutRefWorker pid=2858700)[0m Restarting vLLM due to error:  Error in model execution: CUDA error: an illegal memory access was encountered
+[36m(ActorRolloutRefWorker pid=2858700)[0m CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[36m(ActorRolloutRefWorker pid=2858700)[0m For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[36m(ActorRolloutRefWorker pid=2858700)[0m Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+[36m(ActorRolloutRefWorker pid=2858700)[0m 
+[36m(ActorRolloutRefWorker pid=2858700)[0m Retrying...
+Error executing job with overrides: ['trainer.nnodes=1', 'trainer.n_gpus_per_node=8', 'data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/math.parquet', 'data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30/math/math_n_1_temp_0.6_topp_0.95_maxlen_32768.json', 'data.n_samples=1', 'data.batch_size=2048', 'model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30', 'rollout.temperature=0.6', 'rollout.response_length=32768', 'rollout.top_k=-1', 'rollout.top_p=0.95', 'rollout.gpu_memory_utilization=0.95', 'rollout.tensor_model_parallel_size=1', '+data.skip_format_reward=True']
+Traceback (most recent call last):
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/trainer/main_generation.py", line 147, in main
+    output = wg.generate_sequences(data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/single_controller/ray/base.py", line 42, in func
+    output = ray.get(output)
+             ^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/ray/_private/worker.py", line 2771, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/ray/_private/worker.py", line 919, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(RuntimeError): [36mray::ActorRolloutRefWorker.generate_sequences()[39m (pid=2858700, ip=20.8.4.4, actor_id=7e0232c32b9cd004513e650601000000, repr=<verl.workers.fsdp_workers.ActorRolloutRefWorker object at 0x14612437abd0>)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/worker/model_runner.py", line 1708, in execute_model
+    output: SamplerOutput = self.model.sample(
+                            ^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/models/qwen2.py", line 433, in sample
+    next_tokens = self.sampler(logits, sampling_metadata)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/layers/sampler.py", line 231, in forward
+    self._init_sampling_tensors(logits, sampling_metadata)
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/layers/sampler.py", line 195, in _init_sampling_tensors
+    do_min_p) = SamplingTensors.from_sampling_metadata(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/sampling_metadata.py", line 471, in from_sampling_metadata
+    sampling_tensors = SamplingTensors.from_lists(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/model_executor/sampling_metadata.py", line 529, in from_lists
+    temperatures_t = torch.tensor(
+                     ^^^^^^^^^^^^^
+RuntimeError: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ActorRolloutRefWorker.generate_sequences()[39m (pid=2858700, ip=20.8.4.4, actor_id=7e0232c32b9cd004513e650601000000, repr=<verl.workers.fsdp_workers.ActorRolloutRefWorker object at 0x14612437abd0>)
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/workers/rollout/vllm_rollout/vllm_rollout.py", line 207, in generate_sequences
+    output = self.inference_engine.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/utils.py", line 1063, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 353, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/third_party/vllm/vllm_v_0_6_3/llm.py", line 166, in _run_engine
+    outputs = super()._run_engine(use_tqdm=use_tqdm)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 879, in _run_engine
+    step_outputs = self.llm_engine.step()
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 1386, in step
+    outputs = self.model_executor.execute_model(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/third_party/vllm/vllm_v_0_6_3/spmd_gpu_executor.py", line 163, in execute_model
+    all_outputs = self.worker.execute_model(execute_model_req=execute_model_req)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/third_party/vllm/vllm_v_0_6_3/worker.py", line 267, in execute_model
+    return self.model_runner.execute_model(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/worker/model_runner_base.py", line 146, in _wrapper
+    raise type(err)(f"Error in model execution: "
+RuntimeError: Error in model execution: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+During handling of the above exception, another exception occurred:
+
+[36mray::ActorRolloutRefWorker.generate_sequences()[39m (pid=2858700, ip=20.8.4.4, actor_id=7e0232c32b9cd004513e650601000000, repr=<verl.workers.fsdp_workers.ActorRolloutRefWorker object at 0x14612437abd0>)
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/workers/fsdp_workers.py", line 447, in generate_sequences
+    output = self.rollout.generate_sequences(prompts=prompts)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/workers/rollout/vllm_rollout/vllm_rollout.py", line 276, in generate_sequences
+    torch.cuda.empty_cache()
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/cuda/memory.py", line 170, in empty_cache
+    torch._C._cuda_emptyCache()
+RuntimeError: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+During handling of the above exception, another exception occurred:
+
+[36mray::ActorRolloutRefWorker.generate_sequences()[39m (pid=2858700, ip=20.8.4.4, actor_id=7e0232c32b9cd004513e650601000000, repr=<verl.workers.fsdp_workers.ActorRolloutRefWorker object at 0x14612437abd0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/single_controller/base/decorator.py", line 404, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/workers/fsdp_workers.py", line 439, in generate_sequences
+    with self.rollout_sharding_manager:
+  File "/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/verl/verl/workers/sharding_manager/fsdp_vllm.py", line 105, in __exit__
+    torch.cuda.empty_cache()
+  File "/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/cuda/memory.py", line 170, in empty_cache
+    torch._C._cuda_emptyCache()
+RuntimeError: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
++ DATA_TYPE=aime
++ N=16
++ echo 'Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30'
+Model Path: /GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30
++ echo 'Datasets: '
+Datasets: 
++ echo 'Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30'
+Output Directory: /GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30
++ python3 -m verl.trainer.main_generation trainer.nnodes=1 trainer.n_gpus_per_node=8 data.path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/processed_data/aime.parquet data.output_path=/GLOBALFS/gznwp_3/qxj/lgzhong/deepscaler-release/eval_outputs/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30/aime/aime_n_16_temp_0.6_topp_0.95_maxlen_32768.json data.n_samples=16 data.batch_size=2048 model.path=/GLOBALFS/gznwp_3/qxj/lgzhong/LLaMA-Factory/saves/fuser1/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k/DeepSeek-R1-Distill-Qwen-1.5B-armo-judge-sol-dpo-beta0.1-lr8e-7-ep1-bs16-cutoff-16k-checkpoint-30 rollout.temperature=0.6 rollout.response_length=32768 rollout.top_k=-1 rollout.top_p=0.95 rollout.gpu_memory_utilization=0.95 rollout.tensor_model_parallel_size=1 +data.skip_format_reward=True
+/GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+ANTLR runtime and generated code versions disagree: 4.7.2!=4.9.3
+2025-03-21 14:41:18,176	INFO worker.py:1841 -- Started a local Ray instance.
+[36m(pid=2877786)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2877786)[0m No module named 'vllm._version'
+[36m(pid=2877786)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=2878726)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2878726)[0m No module named 'vllm._version'
+[36m(pid=2878726)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=2878725)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2878725)[0m No module named 'vllm._version'
+[36m(pid=2878725)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(ActorRolloutRefWorker pid=2877786)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(ActorRolloutRefWorker pid=2878726)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(ActorRolloutRefWorker pid=2878726)[0m   warnings.warn(
+[36m(pid=2878728)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:[32m [repeated 5x across cluster][0m
+[36m(pid=2878728)[0m No module named 'vllm._version'[32m [repeated 5x across cluster][0m
+[36m(pid=2878728)[0m   from vllm.version import __version__ as VLLM_VERSION[32m [repeated 5x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2878729)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+slurmstepd: error: *** JOB 35660 ON an3 CANCELLED AT 2025-03-21T14:43:05 ***
+*** SIGTERM received at time=1742539385 on cpu 14 ***
+PC: @     0x148537275117  (unknown)  (unknown)
+    @     0x148537226520  (unknown)  (unknown)
+    @ ... and at least 1 more frames
+[2025-03-21 14:43:05,587 E 2873818 2873818] logging.cc:484: *** SIGTERM received at time=1742539385 on cpu 14 ***
+[2025-03-21 14:43:05,588 E 2873818 2873818] logging.cc:484: PC: @     0x148537275117  (unknown)  (unknown)
+[2025-03-21 14:43:05,588 E 2873818 2873818] logging.cc:484:     @     0x148537226520  (unknown)  (unknown)
+[2025-03-21 14:43:05,588 E 2873818 2873818] logging.cc:484:     @ ... and at least 1 more frames
+[36m(ActorRolloutRefWorker pid=2878724)[0m /GLOBALFS/gznwp_3/anaconda3/envs/360_llama_fac/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 7x across cluster][0m
+[36m(ActorRolloutRefWorker pid=2878724)[0m   warnings.warn([32m [repeated 7x across cluster][0m

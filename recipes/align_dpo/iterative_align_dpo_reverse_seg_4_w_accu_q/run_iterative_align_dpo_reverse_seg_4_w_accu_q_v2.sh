@@ -1,0 +1,346 @@
+#!/bin/bash
+set -e  # 出现错误时退出
+set -u  # 使用未定义变量时报错
+
+# 环境激活函数，确保每次循环时激活环境
+activate_env() {
+    eval "$(conda shell.bash hook)"
+    conda activate "$1"
+}
+
+# 项目根目录
+PROJ_DIR='/GLOBALFS/gznwp_3/qxj/shitianyuan/Model-Fusion-public'
+cd "$PROJ_DIR" || { echo "Failed to cd to ${PROJ_DIR}"; exit 1; }
+
+# 设置数据和版本
+DATE='0504'
+MODEL_ID="Llama-3.2-3B-Instruct"
+VERSION='iterative_align_dpo_reverse_seg_4_w_accu_q_re_2'
+ITERATION_TIME=3
+SEGMENT_NUM=4
+FORWARD_OR_REVERSE="reverse"
+
+LOG_DIR="${PROJ_DIR}/log/${DATE}/${VERSION}"
+mkdir -p "$LOG_DIR"
+
+for (( i=1; i<=ITERATION_TIME; i++ ))
+do  
+    COMPLETION_INFER_LOG_DIR="${LOG_DIR}/completion_infer_iter_${i}"
+    mkdir -p "$COMPLETION_INFER_LOG_DIR"
+
+    # 激活环境（每次迭代激活）
+    activate_env vllm_zlg
+
+    echo "Starting Iteration $i at $(date)"
+
+    # 输入文件和模型设置
+    COMP_INPUT_FILE="$PROJ_DIR/data/FuseChat-3.0-DPO-Data/openmathinstruct2_validation.json"
+    COMP_OUTPUT_DIR="$PROJ_DIR/data/FuseChat-3.0-DPO-Data/$DATE/$MODEL_ID/$VERSION/iter_$i"
+
+    MODEL="$PROJ_DIR/saves/model_fusion/Llama-3.2-3B-Instruct/0501/Llama-3.2-3B-Instruct-math-multi-src-csft" # !!!
+    
+    SEEDS=(100 13 21 42 79) # 13 21 42 79
+    GPUS=(4 5 6 7) # 1 2 3 4 5 6 7
+    NUM_SEEDS=${#SEEDS[@]}  # seed 的个数
+    NUM_GPUS=${#GPUS[@]}    # 可用的 GPU 数量
+    CHUNK_NUM=$NUM_GPUS
+    JOB_INDEX=0
+
+    # while [ $JOB_INDEX -lt $NUM_SEEDS ]; do
+    #     SEED=${SEEDS[$JOB_INDEX]}
+        
+    #     # 分配 CHUNK_NUM 块数据到 GPU
+    #     for (( CHUNK_ID=0; CHUNK_ID<CHUNK_NUM; CHUNK_ID++ )); do
+    #         TASK_LOG_FILE="${COMPLETION_INFER_LOG_DIR}/run_infer_chunk_${CHUNK_ID}_seed_${SEED}.log"
+
+    #         GPU_INDEX=$((CHUNK_ID % NUM_GPUS))
+    #         GPU=${GPUS[$GPU_INDEX]}  # 获取当前 GPU
+    #         CUDA_VISIBLE_DEVICES=$GPU python $PROJ_DIR/rollout_for_math/rollout_in_current_iter_seg_index.py \
+    #                 --forward_or_reverse $FORWARD_OR_REVERSE \
+    #                 --input_file $COMP_INPUT_FILE \
+    #                 --model_name_or_path $MODEL \
+    #                 --model_id $MODEL_ID \
+    #                 --output_dir $COMP_OUTPUT_DIR \
+    #                 --seed $SEED \
+    #                 --chunk_num $CHUNK_NUM \
+    #                 --segment_num $SEGMENT_NUM \
+    #                 --chunk_id $CHUNK_ID \
+    #                 --iteration_time $ITERATION_TIME \
+    #                 --completion_id $i > "$TASK_LOG_FILE" 2>&1 &
+    #     done
+
+    #     # 等待所有 GPU 的任务完成
+    #     wait
+
+    #     JOB_INDEX=$((JOB_INDEX + 1))
+    # done
+
+    ### COMPLETION POST-PROCESS
+    POST_PROCESS_TYPE=merge_multi_seeds_completion_chunks_v2
+    POST_PROCESS_LOG_FILE="${LOG_DIR}/post_process_iter_${i}.log"
+    # python $PROJ_DIR/rollout_for_math/build_dataset.py \
+    #     --completion_file_dir $COMP_OUTPUT_DIR \
+    #     --post_process_type $POST_PROCESS_TYPE > "$POST_PROCESS_LOG_FILE" 2>&1
+
+    ### COMPLETION RM SCORING
+    # 激活新的环境
+    activate_env llama_factory_sty
+
+    RM_SCORING_INPUT=$COMP_OUTPUT_DIR/all_generated_completions.json
+    PRM_PATH=/GLOBALFS/gznwp_3/qxj/models/Qwen2.5-Math-PRM-7B
+    ORM_PATH=/GLOBALFS/gznwp_3/qxj/models/ArmoRM-Llama3-8B-v0.1
+    RM_SCORED_OUTPUT_DIR=$COMP_OUTPUT_DIR/completion_with_rm_score
+
+    RULE_VERIFY_DIR=${LOG_DIR}/rule_verify
+    mkdir -p "$RULE_VERIFY_DIR"
+
+    # for ((j=0; j<1; j++))
+    # do
+    #     # 计算当前任务分配的 GPU 索引
+    #     GPU_INDEX=$((j % 1))
+    #     GPU=${GPUS[$GPU_INDEX]}
+    #     SCORING_LOG_FILE="${RULE_VERIFY_DIR}/scoring_iter_${i}_chunk_${j}.log"
+    #     # 使用 & 符号将任务放到后台运行
+    #     CUDA_VISIBLE_DEVICES=$GPU python $PROJ_DIR/rollout_for_math/rollout_verification.py \
+    #         --input_file "$RM_SCORING_INPUT" \
+    #         --output_dir $RM_SCORED_OUTPUT_DIR \
+    #         --verfiy_mode Rule \
+    #         --chunk_num 1 \
+    #         --chunk_id $j > "$SCORING_LOG_FILE" 2>&1 &
+    # done
+    # wait
+
+    ORM_VERIFY_DIR=${LOG_DIR}/orm_verify
+    mkdir -p "$ORM_VERIFY_DIR"
+
+    ORM_SCORED_OUTPUT_DIR=$RM_SCORED_OUTPUT_DIR/orm_verify
+    
+    # for ((j=0; j<$NUM_GPUS; j++))
+    # do
+    #     # 计算当前任务分配的 GPU 索引
+    #     GPU_INDEX=$((j % NUM_GPUS))
+    #     GPU=${GPUS[$GPU_INDEX]}
+    #     SCORING_LOG_FILE="${ORM_VERIFY_DIR}/scoring_iter_${i}_chunk_${j}.log"
+    #     # 使用 & 符号将任务放到后台运行
+    #     CUDA_VISIBLE_DEVICES=$GPU python $PROJ_DIR/rollout_for_math/rollout_verification.py \
+    #         --input_file "$RM_SCORED_OUTPUT_DIR/all_step_rollout_rule_verified.json" \
+    #         --model_name_or_path "$ORM_PATH" \
+    #         --output_dir $ORM_SCORED_OUTPUT_DIR \
+    #         --verfiy_mode ORM \
+    #         --chunk_num $NUM_GPUS \
+    #         --chunk_id $j > "$SCORING_LOG_FILE" 2>&1 &
+    # done
+    # wait
+
+    POST_PROCESS_TYPE=merge_completion_chunks
+    # python $PROJ_DIR/rollout_for_math/build_dataset.py \
+    #     --completion_file_dir $ORM_SCORED_OUTPUT_DIR \
+    #     --post_process_type $POST_PROCESS_TYPE
+
+    if [ "$i" -eq 1 ]; then
+        ### CREATE ALINGED DPO DATA
+        POST_PROCESS_TYPE=create_aligned_segment_dpo_dataset_w_orm
+        CREATE_DPO_LOG_FILE="${LOG_DIR}/create_aligned_dpo_iter_${i}.log"
+        # python $PROJ_DIR/rollout_for_math/build_dataset.py \
+        #     --model_name_or_path $MODEL \
+        #     --forward_or_reverse $FORWARD_OR_REVERSE \
+        #     --completion_file_dir $ORM_SCORED_OUTPUT_DIR \
+        #     --post_process_type $POST_PROCESS_TYPE \
+        #     --iteration_time $ITERATION_TIME \
+        #     --iteration_id $i \
+        #     --dpo_data_sel orm > "$CREATE_DPO_LOG_FILE" 2>&1
+    
+    else
+        # COMPLETION ROLLOUT FOR ACCU Q
+        SEEDS=(10)
+        NUM_SEEDS=${#SEEDS[@]}  # seed 的个数
+        CHUNK_NUM=${#GPUS[@]}
+
+        COMPLETION_INFER_FOR_ACCU_Q_LOG_DIR="${LOG_DIR}/completion_infer_for_accu_q_iter_${i}"
+        mkdir -p "$COMPLETION_INFER_FOR_ACCU_Q_LOG_DIR"
+
+        COMP_FOR_ACCU_Q_INPUT_FILE=$ORM_SCORED_OUTPUT_DIR/all_step_rollout_orm_verified.json
+        MODEL="$PROJ_DIR/saves/model_fusion/$MODEL_ID/$DATE/$VERSION/iter_$((i-1))"
+
+        COMP_FOR_ACCU_Q_OUTPUT_DIR=$COMP_OUTPUT_DIR/completion_for_accu_q
+
+        JOB_INDEX=0
+        # while [ $JOB_INDEX -lt $NUM_SEEDS ]; do
+        #     SEED=${SEEDS[$JOB_INDEX]}
+            
+        #     # 分配 CHUNK_NUM 块数据到 GPU
+        #     for (( CHUNK_ID=0; CHUNK_ID<CHUNK_NUM; CHUNK_ID++ )); do
+        #         TASK_LOG_FILE="${COMPLETION_INFER_FOR_ACCU_Q_LOG_DIR}/run_infer_chunk_${CHUNK_ID}_seed_${SEED}.log"
+
+        #         GPU_INDEX=$((CHUNK_ID % NUM_GPUS))
+        #         GPU=${GPUS[$GPU_INDEX]}  # 获取当前 GPU
+        #         CUDA_VISIBLE_DEVICES=$GPU python $PROJ_DIR/rollout_for_math/rollout_for_accumulate_q.py \
+        #                 --input_file $COMP_FOR_ACCU_Q_INPUT_FILE \
+        #                 --model_name_or_path $MODEL \
+        #                 --model_id $MODEL_ID \
+        #                 --output_dir $COMP_FOR_ACCU_Q_OUTPUT_DIR \
+        #                 --seed $SEED \
+        #                 --chunk_num $CHUNK_NUM \
+        #                 --chunk_id $CHUNK_ID \
+        #                 --iteration_time $ITERATION_TIME \
+        #                 --completion_id $i > "$TASK_LOG_FILE" 2>&1 &
+        #     done
+
+        #     # 等待所有 GPU 的任务完成
+        #     wait
+
+        #     JOB_INDEX=$((JOB_INDEX + 1))
+        # done
+
+        ### COMPLETION POST-PROCESS
+        POST_PROCESS_TYPE=merge_multi_seeds_completion_chunks_v2
+        POST_PROCESS_LOG_FILE="${LOG_DIR}/post_process_accu_q_iter_${i}.log"
+        # python $PROJ_DIR/rollout_for_math/build_dataset.py \
+        #     --completion_file_dir $COMP_FOR_ACCU_Q_OUTPUT_DIR \
+        #     --post_process_type $POST_PROCESS_TYPE > "$POST_PROCESS_LOG_FILE" 2>&1
+
+        ### COMPLETION RM SCORING
+        # 激活新的环境
+        activate_env llama_factory_sty
+
+        ACCU_Q_RM_SCORING_INPUT=$COMP_FOR_ACCU_Q_OUTPUT_DIR/all_generated_completions.json
+        REWARD_MODEL=/GLOBALFS/gznwp_3/qxj/models/Qwen2.5-Math-PRM-7B
+        ACCU_Q_RM_SCORED_OUTPUT_DIR=$COMP_FOR_ACCU_Q_OUTPUT_DIR/completion_with_rm_score
+
+        # for ((j=0; j<1; j++))
+        # do
+        #     # 计算当前任务分配的 GPU 索引
+        #     GPU_INDEX=$((j % 1))
+        #     GPU=${GPUS[$GPU_INDEX]}
+        #     SCORING_LOG_FILE="${RULE_VERIFY_DIR}/accu_q_scoring_iter_${i}_chunk_${j}.log"
+        #     # 使用 & 符号将任务放到后台运行
+        #     CUDA_VISIBLE_DEVICES=$GPU python $PROJ_DIR/rollout_for_math/rollout_verification.py \
+        #         --input_file "$ACCU_Q_RM_SCORING_INPUT" \
+        #         --output_dir $ACCU_Q_RM_SCORED_OUTPUT_DIR \
+        #         --verfiy_mode Rule \
+        #         --chunk_num 1 \
+        #         --chunk_id $j > "$SCORING_LOG_FILE" 2>&1 &
+        # done
+        # wait
+
+        ACCU_Q_ORM_VERIFY_DIR=${LOG_DIR}/accu_q_orm_verify
+        mkdir -p "$ACCU_Q_ORM_VERIFY_DIR"
+
+        ACCU_Q_ORM_SCORED_OUTPUT_DIR=$ACCU_Q_RM_SCORED_OUTPUT_DIR/orm_verify
+
+        # for ((j=0; j<$NUM_GPUS; j++))
+        # do
+        #     # 计算当前任务分配的 GPU 索引
+        #     GPU_INDEX=$((j % NUM_GPUS))
+        #     GPU=${GPUS[$GPU_INDEX]}
+        #     SCORING_LOG_FILE="${ACCU_Q_ORM_VERIFY_DIR}/scoring_iter_${i}_chunk_${j}.log"
+        #     # 使用 & 符号将任务放到后台运行
+        #     CUDA_VISIBLE_DEVICES=$GPU python $PROJ_DIR/rollout_for_math/rollout_verification.py \
+        #         --input_file "$ACCU_Q_RM_SCORED_OUTPUT_DIR/all_step_rollout_rule_verified.json" \
+        #         --model_name_or_path "$ORM_PATH" \
+        #         --output_dir $ACCU_Q_ORM_SCORED_OUTPUT_DIR \
+        #         --verfiy_mode ORM \
+        #         --chunk_num $NUM_GPUS \
+        #         --chunk_id $j > "$SCORING_LOG_FILE" 2>&1 &
+        # done
+        # wait
+
+        POST_PROCESS_TYPE=merge_completion_chunks
+        # python $PROJ_DIR/rollout_for_math/build_dataset.py \
+        #     --completion_file_dir $ACCU_Q_ORM_SCORED_OUTPUT_DIR \
+        #     --post_process_type $POST_PROCESS_TYPE
+
+        ### CREATE ALINGED ACCU Q DPO DATA
+        POST_PROCESS_TYPE=create_aligned_segment_accu_q_dpo_dataset_w_orm
+        CREATE_ACCU_Q_DPO_LOG_FILE="${LOG_DIR}/create_aligned_dpo_accu_q_iter_${i}.log"
+        # python $PROJ_DIR/rollout_for_math/build_dataset.py \
+        #     --forward_or_reverse $FORWARD_OR_REVERSE \
+        #     --model_name_or_path "$MODEL" \
+        #     --completion_file_dir $ORM_SCORED_OUTPUT_DIR \
+        #     --completion_accu_q_dir $ACCU_Q_ORM_SCORED_OUTPUT_DIR \
+        #     --post_process_type $POST_PROCESS_TYPE \
+        #     --iteration_time $ITERATION_TIME \
+        #     --iteration_id $i \
+        #     --dpo_data_sel orm > "$CREATE_ACCU_Q_DPO_LOG_FILE" 2>&1
+
+    fi
+
+    ### ALIGNED DPO TRAINING
+    TRAINING_LOG_DIR="${LOG_DIR}/training_iter_${i}"
+    mkdir -p "$TRAINING_LOG_DIR"
+    LOG_FILE="${TRAINING_LOG_DIR}/run_dpo_iter_${i}.log"
+
+    echo "-------------------------------"
+    echo "Iteration ${i}:"
+    echo "  Log file: ${LOG_FILE}"
+    echo "-------------------------------"
+
+    CUDA_VISIBLE_DEVICES=4,5,6,7 FORCE_TORCHRUN=1 llamafactory-cli train \
+        "$PROJ_DIR/recipes/align_dpo/iterative_align_dpo_${FORWARD_OR_REVERSE}_seg_4_w_accu_q/iter_$i.yaml" > "$LOG_FILE" 2>&1
+
+    echo "Iteration ${i} completed. Log saved to ${LOG_FILE}"
+    exit 0
+done
+
+# exit 0
+### MATH EVALUATION
+activate_env 360_llama_fac
+
+PROJ_DIR="$PROJ_DIR"
+cd $PROJ_DIR
+
+set -x
+
+export VLLM_ATTENTION_BACKEND=FLASH_ATTN
+export CUDA_VISIBLE_DEVICES=6,7
+
+# Default values
+MODEL_ROOT_DIR="$PROJ_DIR/saves/model_fusion/$MODEL_ID/$DATE/$VERSION"
+OUTPUT_ROOT_DIR="$PROJ_DIR/benchmark_inference_results/$MODEL_ID/$DATE/$VERSION"
+
+mkdir -p $OUTPUT_ROOT_DIR
+
+# Sampling params
+GPU_NUM=2
+TP=1
+TEMP=0.6 
+TOP_P=0.95
+MAX_LEN=32768
+
+MODEL_NAMES=(iter_1) # iter_2 iter_3
+DATATYPES=(aime)
+N=(16)
+
+for MODEL_NAME in "${MODEL_NAMES[@]}";do
+
+MODEL_PATH=$MODEL_ROOT_DIR/$MODEL_NAME
+echo "Model Path: ${MODEL_PATH}"
+
+EVAL_LOG_DIR="${LOG_DIR}/${MODEL_NAME}"
+mkdir -p $EVAL_LOG_DIR
+
+# Loop through all datatypes
+for ((i=0; i<${#DATATYPES[@]}; i++)); do
+    DATA_TYPE=${DATATYPES[i]}
+    N_VALUE=${N[i]}
+
+    OUTPUT_DIR=$OUTPUT_ROOT_DIR/$MODEL_NAME/$DATA_TYPE
+    echo "Output Directory: ${OUTPUT_DIR}"
+    
+    python -m verl.trainer.main_generation \
+        trainer.nnodes=1 \
+        trainer.n_gpus_per_node=${GPU_NUM} \
+        data.path=$PROJ_DIR/deepscaler-release/processed_data/${DATA_TYPE}.parquet \
+        data.output_path=${OUTPUT_DIR}/n_${N}_temp_${TEMP}_topp_${TOP_P}_maxlen_${MAX_LEN}.json \
+        data.n_samples=${N_VALUE} \
+        data.batch_size=2048 \
+        model.path=${MODEL_PATH} \
+        rollout.temperature=${TEMP} \
+        rollout.response_length=${MAX_LEN} \
+        rollout.top_k=-1 \
+        rollout.top_p=${TOP_P} \
+        rollout.gpu_memory_utilization=0.95 \
+        rollout.tensor_model_parallel_size=${TP} \
+        +data.skip_format_reward=True > "${EVAL_LOG_DIR}/${DATA_TYPE}.log" 2>&1
+done
+done

@@ -1,0 +1,51 @@
+### model
+model_name_or_path: /GLOBALFS/gznwp_3/qxj/models/Llama-3.2-3B-Instruct
+# /GLOBALFS/gznwp_3/qxj/models/Qwen2.5-3B-Instruct
+# /data/wanfq/fuse3/models/Llama-3.2-3B-Instruct
+# /GLOBALFS/gznwp_3/qxj/yangzy/models/Llama-3.2-3B-Instruct
+# /nas-wulanchabu/hongzhan.chz/tmp/models/meta-llama/Llama-3.2-3B-Instruct
+# /nas-wulanchabu/shitianyuan.sty/LLaMA-Factory/saves/model_fusion/Llama-3.2-3B-Instruct/0220/dpo_completion_iteration_1
+# /nas-wulanchabu/shitianyuan.sty/LLaMA-Factory/saves/model_fusion/Llama-3.2-3B-Instruct/0103/stage1_sft
+# /nas-wulanchabu/shitianyuan.sty/LLaMA-Factory/saves/model_fusion/Llama-3.2-3B-Instruct/0217/dpo_completion_iteration_2
+# /nas-wulanchabu/hongzhan.chz/tmp/models/meta-llama/Llama-3.2-3B-Instruct
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full 
+deepspeed: examples/deepspeed/ds_z3_config.json #ds_z3_config.json
+
+### dataset
+dataset: model_fusion_hard_sft
+template: llama3 #qwen llama3
+cutoff_len: 8000
+# max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/model_fusion/Llama-3.2-3B-Instruct/0322/openr1_solution_hard_sft_bs_64
+# /data/sty/model_fusion/save_models/Qwen2.5-3B-Instruct/0316/sft_base
+logging_steps: 10
+save_steps: 200
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 2
+learning_rate: 1.0e-5
+num_train_epochs: 5
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+flash_attn: fa2
+save_only_model: true
+seed: 42
+
+### eval
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 100
